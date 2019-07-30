@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<body>
+<img id="imgId" src="" alt="">
+</body>
+
+<script>
+    let params = {name: '123', url: 'http'};
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:8080/?name=123&url=https',
+        success:function (res) {
+            console.log('res--------', JSON.parse(res))
+            let resData = JSON.parse(res);
+            $("#imgId").attr('src', resData.pic);
+        },
+        error:function (err) {
+            console.log('err--------', err)
+        }
+    })
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:8080/',
+        data: params,
+        success:function (res) {
+            console.log('res--------', res)
+        },
+        error:function (err) {
+            console.log('err--------', err)
+        }
+    })
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:8080/list_user?name=123&url=https',
+        success:function (res) {
+            console.log('res--------', res)
+        },
+        error:function (err) {
+            console.log('err--------', err)
+        }
+    })
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:8080/del_user',
+        data: params,
+        success:function (res) {
+            console.log('res--------', res)
+        },
+        error:function (err) {
+            console.log('err--------', err)
+        }
+    })
+</script>
+</html>

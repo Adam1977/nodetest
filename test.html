@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    let params = {name: '123', age: 19}
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:8080/getInfo?abc=123&ccc=abc',
+        success: function (res) {
+            console.log('res------', res)
+        },
+        error: function (err) {
+            console.log('err------', err)
+        }
+    })
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:8080/postAdd',
+        data: params,
+        success: function (res) {
+            console.log('res------', res)
+        },
+        error: function (err) {
+            console.log('err------', err)
+        }
+    })
+    axios.get('http://localhost:8080/getInfo', {params: {a: 123}}).then(res=> {
+        console.log(res)
+    })
+    axios.post('http://localhost:8080/postAdd', {a: 123, b: 333}).then(res=> {
+        console.log(res)
+    })
+</script>
+</html>

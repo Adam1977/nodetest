@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<body>
+
+</body>
+
+<script>
+    let isreturn = isQueryParams('id')
+    console.log('isreturn--------', isreturn)
+    $.ajax({
+        type: 'GET',
+        url: `http://localhost:8080/${isreturn}`,
+        success:function (res) {
+            console.log('res--------', JSON.parse(res))
+        },
+        error:function (err) {
+            console.log('err--------', err)
+        }
+    })
+    function isQueryParams(param='') {
+        let shref = location.href.split('?')[1];
+        let paramData = {};
+        if (shref.includes('&')) {
+            for(let i = 0; i < shref.split('&').length; i++) {
+                let spar = shref.split('&')[i]
+                paramData[spar.split('=')[0]] =  spar.split('=')[1];
+            }
+            return paramData[param]
+        }
+    }
+</script>
+</html>
