@@ -1,0 +1,27 @@
+{
+  "name": "nodetest",
+  "version": "1.0.1",
+  "description": "A nodejs exercise",
+  "main": "test.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node testServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adam1977/nodetest.git"
+  },
+  "author": "Adam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adam1977/nodetest/issues"
+  },
+  "homepage": "https://github.com/Adam1977/nodetest#readme",
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "child_process": "^1.0.2",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "querystring": "^0.2.0"
+  }
+}
